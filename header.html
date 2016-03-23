@@ -1,0 +1,28 @@
+<dom-module id="drawer-header">
+	<template>
+		<style>
+      /* CSS rules for your element */
+   		</style>
+    	<paper-drawer-panel class="flex" >
+
+  				<div drawer>
+  					<list-box></list-box>
+  				</div>
+  				<div main>
+  				<paper-header-panel>
+    			<paper-toolbar class="tall layout horizontal">
+      				<div class="middle title align-right" ><img src="big-logo.jpg" style="width:150px; height:150px"></img></div>
+      				<div class="middle title align-right">Ajay Shivlani's The Skate Academy</div>
+    			</paper-toolbar>
+  			</paper-header-panel>
+  				</div>
+  			</paper-drawer-panel>
+	</template>
+    <script>
+
+    // element registration
+    	Polymer({
+      		is: "drawer-header"
+    	});
+  	</script>
+</dom-module>
