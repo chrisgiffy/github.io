@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> The Skate Academy</title>
+    	<link rel="stylesheet" href="styles.css" > </link>
+    	<link rel="import" href="bower_components/polymer/polymer.html"></link>
+    	<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    	<link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html"></link>
+    	<link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html"></link>
+    	<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html"></link>
+    	<link rel="import" href="bower_components/paper-item/paper-item.html"></link>
+    	<link rel="import" href="bower_components/paper-listbox/paper-listbox.html"></link>
+    	<link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html"></link>
+    	<link rel="shortcut icon" type="image/jpg" href="big-logo.jpg"></link>
+	</head>
+	<body class="fullbleed layout vertical">
+		
+  			
+  			<paper-drawer-panel class="flex" >
+
+  				<div drawer style="z-index: 0">
+  					<paper-listbox selected="0" style="margin-top: 193px">
+  						<paper-item active="true" focused="true">Home</paper-item>
+  						<paper-item>Achievers</paper-item>
+  						<paper-item>Media</paper-item>
+  						<paper-item>Contact Us</paper-item>
+  						<paper-item>Centers</paper-item>
+  						<paper-item>Fees</paper-item>
+  						<paper-item>Events</paper-item>
+  					</paper-listbox>
+  				</div>
+  				<div main>
+  				<paper-header-panel style="z-index: 1" layout="grid">
+    			<paper-toolbar class="tall">
+      				<div class="middle" ><img src="big-logo.jpg" style="width:150px; height:150px"></img></div>
+      				<div class="middle title">Ajay Shivlani's The Skate Academy</div>
+    			</paper-toolbar>
+  			</paper-header-panel>
+  				</div>
+  			</paper-drawer-panel>
+	</body>
+</html>
