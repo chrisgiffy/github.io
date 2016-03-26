@@ -1,20 +1,23 @@
-<dom-module id="list-box">
+<dom-module id="tabs-box">
 	<template>
 		<style>
+			paper-tabs{
+				margin-right:0px;
+			}
 		</style>
-		<paper-listbox>
-  			<paper-item>Home</paper-item>
-  			<paper-item>Achievers</paper-item>
-  			<paper-item>Media</paper-item>
-  			<paper-item>Contact Us</paper-item>
-  			<paper-item>Centers</paper-item>
-  			<paper-item>Fees</paper-item>
-  			<paper-item>Events</paper-item>
-  		</paper-listbox>
+		<paper-tabs selected="0" scrollable  >
+  			<paper-tab>Home</paper-tab>
+  			<paper-tab>Achievers</paper-tab>
+  			<paper-tab>Media</paper-tab>
+  			<paper-tab>Contact Us</paper-tab>
+  			<paper-tab>Centers</paper-tab>
+  			<paper-tab>Fees</paper-tab>
+  			<paper-tab>Events</paper-tab>
+  		</paper-tabs>
 	</template>
 	<script>
 		Polymer({
-			is:"list-box"
+			is:"tabs-box"
 		});
 	</script>
 </dom-module>
