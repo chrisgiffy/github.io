@@ -9,21 +9,42 @@
       			bottom: 0;
       			left: 0;
       			background-color: var(--paper-grey-200, #eee);
+      			--paper-scroll-header-panel-full-header: {
+      				transition: all linear 0.5s;
+        			background-image: var(--my-image);
+        			background-position: left center;
+      			};
+      			/* background for toolbar when it is condensed */
+      			--paper-scroll-header-panel-condensed-header: {
+        			background-color: red;
+     			 };
 			}
 			img {
 				height:150px;
 				width:150px;
 			}
+			paper-toolbar.tall {
+      			background-color: transparent;
+   			 }
+
    		</style>
-    	<paper-scroll-header-panel condenses condensedHeaderHeight="200px" keepCondensedHeader="true">
-			<paper-toolbar class="tall">
+    	<paper-scroll-header-panel condenses  condensed-header-height="100" keep-condensed-header>
+			<paper-toolbar class="tall" style="height:300px">
       			
-      			<div class="title" ><span>Ajay Shivlani's The Skate Academy</span></div>
-      			<div class="flex"><tabs-box></tabs-box></div>
+      			<div class="title center" ><span>Ajya Shivlani's - The Skate Academy</span></div>
+      			<div class="flex bottom"><tabs-box></tabs-box></div>
 			</paper-toolbar>
 			
     		<div class="content" >
-    			<div style="height:1000px"></div>
+    			<iron-pages selected="0">
+    				<div><home-page></home-page></div>
+    				<div><achievers-page></achievers-page></div>
+    				<div><media-page></media-page></div>
+    				<div><contact-page></contact-page></div>
+    				<div><centers-page></centers-page></div>
+    				<div><fees-page></fees-page></div>
+    				<div><events-page></events-page></div>
+    			</iron-pages>
     		</div>
   		</paper-scroll-header-panel>
 	</template>
@@ -31,7 +52,26 @@
 
     // element registration
     	Polymer({
-      		is: "drawer-header"
+      		
+      		backgrounds :[
+  				'images/image1.jpg',
+  				'images/image2.jpg',
+  				'images/image3.jpg'
+  			],
+  			loop:0,
+      		created: function() {
+    			setInterval(this.changeBackground.bind(this), 2000);
+  			},
+  			changeBackground : function(){
+  				
+  				if(this.loop>2){
+  					this.loop = 0;
+  				}
+  				this.customStyle['--my-image'] = 'url('+this.backgrounds[this.loop]+')';
+          		this.updateStyles();
+  				this.loop++;
+  			}
     	});
+
   	</script>
 </dom-module>

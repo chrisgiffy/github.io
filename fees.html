@@ -1,0 +1,100 @@
+<dom-module id="fees-page">
+<template>
+	<style>
+	#fees-div {
+    	right: 0;
+      	left: 0;
+      	bottom:0;
+      	background:white;
+	}
+	#fees-table {
+		margin-left:28%;
+		margin-top:2%;
+		width:600px;
+	}
+	#fees-table td, #fees-table th{
+		height:60px;
+		text-align:center;
+	}
+	</style>
+	<div id="fees-div">
+	<table border="1" id="fees-table" class="center">
+		<tr>
+			<th>
+				Months
+			</th>
+			<th>
+				Sessions
+			</th>
+			<th>
+				Fees
+			</th>
+			<th>
+				Savings
+			</th>
+		</tr>
+		<tr>
+			<td>
+				Per Month
+			</td>
+			<td>
+				8/9
+			</td>
+			<td>
+				Rs. 1500
+			</td>
+			<td>
+				Rs. 0
+			</td>
+		</tr>
+		<tr>
+			<td>
+				3 Months
+			</td>
+			<td>
+				25
+			</td>
+			<td>
+				Rs. 3600
+			</td>
+			<td>
+				Rs. 900
+			</td>
+		</tr>
+		<tr>
+			<td>
+				6 Months
+			</td>
+			<td>
+				50
+			</td>
+			<td>
+				Rs. 6000
+			</td>
+			<td>
+				Rs. 3000
+			</td>
+		</tr>
+		<tr>
+			<td>
+				1 Year
+			</td>
+			<td>
+				100
+			</td>
+			<td>
+				Rs. 10000
+			</td>
+			<td>
+				Rs. 8000
+			</td>
+		</tr>
+	</table>
+	</div>
+	</template>
+	<script>
+	Polymer({
+		is: "fees-page",
+	});
+	</script>
+</dom-module>
