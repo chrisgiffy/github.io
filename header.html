@@ -8,7 +8,7 @@
       			right: 0;
       			bottom: 0;
       			left: 0;
-      			background-color: var(--paper-grey-200, #eee);
+      			background-color: white;
       			--paper-scroll-header-panel-full-header: {
       				transition: all linear 0.5s;
         			background-image: var(--my-image);
@@ -31,7 +31,7 @@
     	<paper-scroll-header-panel condenses  condensed-header-height="100" keep-condensed-header>
 			<paper-toolbar class="tall" style="height:300px">
       			
-      			<div class="title center" ><span>Ajya Shivlani's - The Skate Academy</span></div>
+      			<div class="title center" ><span>Ajay Shivlani's - The Skate Academy</span></div>
       			<div class="flex bottom"><tabs-box></tabs-box></div>
 			</paper-toolbar>
 			
@@ -52,7 +52,7 @@
 
     // element registration
     	Polymer({
-      		
+      		is : 'drawer-header',
       		backgrounds :[
   				'images/image1.jpg',
   				'images/image2.jpg',

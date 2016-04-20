@@ -1,0 +1,32 @@
+<dom-module id="loc-card">
+	<template>
+	<style>
+	
+	</style>
+	<paper-card heading="{{center}}">
+  <div class="card-content">Address : {{add}}
+  location : {{location}}
+  pincode : {{pincode}}
+  landmark : {{landmark}}
+  timings : {{timings}}</div>
+  <div class="card-actions">
+    <paper-button>View Map</paper-button>
+  </div>
+</paper-card>
+</template>
+<script>
+Polymer({
+	is: "loc-card",
+	properties: {
+			lat : String,
+			long : String,
+			center : String,
+			add : String,
+			location : String,
+			pincode : String,
+			landmark : String,
+			timings : String
+		}
+});
+</script>
+</dom-module>
