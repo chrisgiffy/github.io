@@ -1,16 +1,33 @@
 <dom-module id="loc-card">
 	<template>
 	<style>
-	
+	:host{
+		--paper-card-header {
+			background : #D1FF6E;
+			color:#000000;
+		}
+	}
 	</style>
-	<paper-card heading="{{center}}">
-  <div class="card-content">Address : {{add}}
-  location : {{location}}
-  pincode : {{pincode}}
-  landmark : {{landmark}}
-  timings : {{timings}}</div>
+	<paper-card heading="{{center}}" class="white" animatedShadow="true" elevation="3">
+  <div class="card-content">{{add}}<br>{{location}}<br>{{pincode}}<br>Landmark: {{landmark}}<br>Training Days: {{days}}<br> Timing: {{timings}}</div>
   <div class="card-actions">
-    <paper-button>View Map</paper-button>
+    <paper-button>Share</paper-button>
+    <paper-button>Explore</paper-button>
+    <paper-icon-button icon="hardware:keyboard-arrow-up" title="more-info-{{center}}" onclick="_toggle()" style="float:right;">
+    </paper-icon-button>
+    <iron-collapse id="more-info-{{center}}" style="width:100%;">
+      Map Details {{center}}
+    </iron-collapse>
+    <script>
+      function _toggle() {
+        
+        var iconButton = Polymer.dom(event).localTarget;
+        var moreInfo = document.getElementById(iconButton.title)
+        iconButton.icon = moreInfo.opened ? 'hardware:keyboard-arrow-up'
+                                          : 'hardware:keyboard-arrow-down';
+        moreInfo.toggle();
+      }
+    </script>
   </div>
 </paper-card>
 </template>
@@ -25,7 +42,8 @@ Polymer({
 			location : String,
 			pincode : String,
 			landmark : String,
-			timings : String
+			timings : String,
+			days: String
 		}
 });
 </script>
