@@ -2,22 +2,40 @@
 	<template>
 	<style>
 	:host{
-		--paper-card-header {
-			background : #D1FF6E;
-			color:#000000;
-		}
+		--paper-card-header-color:grey;
+		--paper-card-background-color:blue;
+	}
+	table {
+		color:#ffffff;
+	}
+	paper-button{
+		background:#ffffff;
 	}
 	</style>
-	<paper-card heading="{{center}}" class="white" animatedShadow="true" elevation="3">
-  <div class="card-content">{{add}}<br>{{location}}<br>{{pincode}}<br>Landmark: {{landmark}}<br>Training Days: {{days}}<br> Timing: {{timings}}</div>
+	
+	<paper-card heading="{{center}}" animatedShadow="true" elevation="3">
+  <div class="card-content">
+  <table width="500px">
+  	<tr><td align="left" colspan="2">{{add}},</td></tr>
+  	<tr><td align="left" colspan="2">{{location}},</td></tr>
+  	<tr><td align="left" colspan="2">{{pincode}}</td></tr>
+  	<tr><td align="left" width="103px"><b>Landmark:</b></td>
+  	<td align="left">{{landmark}}</td></tr>
+  	<tr><td align="left" width="103px"><b>Training Days:</b></td>
+  	<td align="left">{{days}}</td></tr>
+  	<tr><td align="left" width="103px"><b>Timing:</b></td>
+  	<td align="left">{{timings}}</td></tr>
+	</table>
+  </div>
   <div class="card-actions">
     <paper-button>Share</paper-button>
     <paper-button>Explore</paper-button>
     <paper-icon-button icon="hardware:keyboard-arrow-up" title="more-info-{{center}}" onclick="_toggle()" style="float:right;">
     </paper-icon-button>
     <iron-collapse id="more-info-{{center}}" style="width:100%;">
-      Map Details {{center}}
+      <map-locations title="{{center}}" lattitude="{{lat}}" longtitude="{{long}}"></map-locations>
     </iron-collapse>
+    </div>
     <script>
       function _toggle() {
         
@@ -28,15 +46,14 @@
         moreInfo.toggle();
       }
     </script>
-  </div>
-</paper-card>
+    </paper-card>
 </template>
 <script>
 Polymer({
 	is: "loc-card",
 	properties: {
-			lat : String,
-			long : String,
+			lat : Number,
+			long : Number,
 			center : String,
 			add : String,
 			location : String,

@@ -1,0 +1,37 @@
+<dom-module id="map-locations">
+	<template>
+		<style>
+  			google-map {
+    			height: 300px;
+    			width: 500px;
+  			}
+		</style>
+		<!-- <google-map latitude="{{lattitude}}" longitude="{{longtitude}}" fit-to-markers  min-zoom="15" max-zoom="30"
+		api-key="AIzaSyCcK6gZNXUajuj9wSKTz3rUET4RyU4IX3g">
+			<google-map-marker latitude="{{lattitude}}" longitude="{{longtitude}}"
+      		draggable="true" title="{{title}}"></google-map-marker>
+		</google-map> -->
+		<google-map latitude="{{lattitude}}" longitude="{{longtitude}}" min-zoom="9" max-zoom="11"
+            language="en">
+  <google-map-marker latitude="{{lattitude}}" longitude="{{longtitude}}"
+                     title="Go Giants!" draggable="false" drag-events>
+  </google-map-marker>
+  
+</google-map>
+		<script>
+		
+		</script>	
+	</template>
+	<script>
+		Polymer({
+			is:"map-locations",
+			properties:{
+				lattitude : String,
+				longtitude : String,
+				title : String
+			}
+
+		});
+		
+	</script>
+</dom-module>
