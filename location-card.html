@@ -2,8 +2,8 @@
 	<template>
 	<style>
 	:host{
-		--paper-card-header-color:grey;
-		--paper-card-background-color:blue;
+		--paper-card-header-color:#ffffff;
+		--paper-card-background-color:#000000;
 	}
 	table {
 		color:#ffffff;
@@ -28,21 +28,17 @@
 	</table>
   </div>
   <div class="card-actions">
-    <paper-button>Share</paper-button>
-    <paper-button>Explore</paper-button>
-    <paper-icon-button icon="hardware:keyboard-arrow-up" title="more-info-{{center}}" onclick="_toggle()" style="float:right;">
-    </paper-icon-button>
+    <paper-button title="more-info-{{center}}" onclick="_toggle()">Map It</paper-button>
     <iron-collapse id="more-info-{{center}}" style="width:100%;">
       <map-locations title="{{center}}" lattitude="{{lat}}" longtitude="{{long}}"></map-locations>
     </iron-collapse>
+    
     </div>
     <script>
       function _toggle() {
         
         var iconButton = Polymer.dom(event).localTarget;
-        var moreInfo = document.getElementById(iconButton.title)
-        iconButton.icon = moreInfo.opened ? 'hardware:keyboard-arrow-up'
-                                          : 'hardware:keyboard-arrow-down';
+        var moreInfo = document.getElementById(iconButton.title);
         moreInfo.toggle();
       }
     </script>
@@ -51,6 +47,9 @@
 <script>
 Polymer({
 	is: "loc-card",
+	behaviors: [
+      Polymer.NeonAnimationRunnerBehavior
+    ],
 	properties: {
 			lat : Number,
 			long : Number,

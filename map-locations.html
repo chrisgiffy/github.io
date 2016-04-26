@@ -4,30 +4,22 @@
   			google-map {
     			height: 300px;
     			width: 500px;
+    			margin-top:10px;
   			}
 		</style>
-		<!-- <google-map latitude="{{lattitude}}" longitude="{{longtitude}}" fit-to-markers  min-zoom="15" max-zoom="30"
-		api-key="AIzaSyCcK6gZNXUajuj9wSKTz3rUET4RyU4IX3g">
-			<google-map-marker latitude="{{lattitude}}" longitude="{{longtitude}}"
-      		draggable="true" title="{{title}}"></google-map-marker>
-		</google-map> -->
-		<google-map latitude="{{lattitude}}" longitude="{{longtitude}}" min-zoom="9" max-zoom="11"
+		<google-map latitude="[[lattitude]]" longitude="[[longtitude]]" min-zoom="9" max-zoom="19" zoom="15"
             language="en">
-  <google-map-marker latitude="{{lattitude}}" longitude="{{longtitude}}"
-                     title="Go Giants!" draggable="false" drag-events>
-  </google-map-marker>
-  
-</google-map>
-		<script>
-		
-		</script>	
+  			<google-map-marker latitude="[[lattitude]]" longitude="[[longtitude]]"
+                     title="{{title}}" draggable="false" drag-events>
+  			</google-map-marker>
+		</google-map>	
 	</template>
 	<script>
 		Polymer({
 			is:"map-locations",
 			properties:{
-				lattitude : String,
-				longtitude : String,
+				lattitude : Number,
+				longtitude : Number,
 				title : String
 			}
 

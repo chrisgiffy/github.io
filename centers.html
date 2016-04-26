@@ -1,23 +1,35 @@
 <dom-module id="centers-page">
 	<template>
 		<style>
+		#notes {
+    @apply(--layout-horizontal);
+    @apply(--layout-wrap);
+  }
+
+  #notes > loc-card {
+    box-sizing: border-box;
+    margin-top:20px;
+    margin-right:20px;
+    flex: 0 0 auto;
+  }
 		</style>
-		<div class="layout grid">
-		<loc-card center="St. Pauls Society of Bombay" add="23rd/58th Road, TPS III" location="Bandra" pincode="Mumbai - 400 050." 
-		landmark="Opp Durelo Convent School, Behind Title Waves Book Store " 
-		timings="6:45 pm to 7:45 pm (Mon, Tue & Fri) - 10:00 am to 11:00 am (Sat)" 
-		days="Mon, Tue, Fri & Sat (Select any Two)"
-		lat="19.0609834" long="72.8319674"></loc-card>
-		<loc-card center="St. Joseph’s Convent Primary School" add="Manuel Gonsalves Road" location="Bandra (West)" pincode="Mumbai - 400 050." landmark="Next to Cotton World" 
-		days="Mon/Wed/Fri (Select any two) " timings="5:00 pm to 6:00 pm"
-		lat="19.055889" long="72.829648"></loc-card>
-		<loc-card center="Podar Sports Education Complex" add="Next To Police Quarters, Linking Road" location="Santacruz West" pincode="Mumbai - 400054" landmark="" timings="6:30 pm to 7:30 pm" days="Mon & Wed"
-		lat="19.082302" long="72.833691"></loc-card>
-		<loc-card center="Sher e Punjab Gymkhana" add="250, Madhukunj Society" location="Andheri East, Mumbai" pincode="Maharashtra 400093" landmark="" timings="5:00 pm to 6:00 pm" days="Thurs & Sat"
-		lat="19.128815" long="72.863467"></loc-card>
-		<loc-card center="Dominic Savio Vidyalaya" add="St Dyaneshwar Marg, Pant Nagar" location="Ghatkopar East" pincode="Mumbai - 400075" landmark=" Behind Pant Nagar Police Station" timings="6:00 pm to 7:00 pm" days="Thu & Sat"
-		lat="19.089716" long="72.914652"></loc-card>
+		<div id="notes">
+			<loc-card center="St. Pauls Society of Bombay" add="23rd/58th Road, TPS III" location="Bandra" pincode="Mumbai - 400 050." 
+			landmark="Opp Durelo Convent School, Behind Title Waves Book Store " 
+			timings="6:45 pm to 7:45 pm (Mon, Tue & Fri) - 10:00 am to 11:00 am (Sat)" 
+			days="Mon, Tue, Fri & Sat (Select any Two)"
+			lat="19.0609834" long="72.8319674"></loc-card>
+			<loc-card center="St. Joseph’s Convent Primary School" add="Manuel Gonsalves Road" location="Bandra (West)" pincode="Mumbai - 400 050." landmark="Next to Cotton World" 
+			days="Mon/Wed/Fri (Select any two) " timings="5:00 pm to 6:00 pm"
+			lat="19.055889" long="72.829648"></loc-card>
+			<loc-card center="Podar Sports Education Complex" add="Next To Police Quarters, Linking Road" location="Santacruz West" pincode="Mumbai - 400054" landmark="" timings="6:30 pm to 7:30 pm" days="Mon & Wed"
+			lat="19.082302" long="72.833691"></loc-card>
+			<loc-card center="Sher e Punjab Gymkhana" add="250, Madhukunj Society" location="Andheri East, Mumbai" pincode="Maharashtra 400093" landmark="" timings="5:00 pm to 6:00 pm" days="Thurs & Sat"
+			lat="19.128815" long="72.863467"></loc-card>
+			<loc-card center="Dominic Savio Vidyalaya" add="St Dyaneshwar Marg, Pant Nagar" location="Ghatkopar East" pincode="Mumbai - 400075" landmark=" Behind Pant Nagar Police Station" timings="6:00 pm to 7:00 pm" days="Thu & Sat"
+			lat="19.089716" long="72.914652"></loc-card>
 		</div>
+    </directions-map>
 	</template>	
 	<script>
 		Polymer({
