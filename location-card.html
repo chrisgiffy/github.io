@@ -29,6 +29,7 @@
   </div>
   <div class="card-actions">
     <paper-button title="more-info-{{center}}" onclick="_toggle()">Map It</paper-button>
+    <paper-button title="more-info-{{center}}" onclick="_openMap()" lattitude="{{lat}}" longtitude="{{long}}" >Get Directions</paper-button>
     <iron-collapse id="more-info-{{center}}" style="width:100%;">
       <map-locations title="{{center}}" lattitude="{{lat}}" longtitude="{{long}}"></map-locations>
     </iron-collapse>
@@ -40,6 +41,12 @@
         var iconButton = Polymer.dom(event).localTarget;
         var moreInfo = document.getElementById(iconButton.title);
         moreInfo.toggle();
+      }
+
+      function _openMap(){
+      	var iconButton = Polymer.dom(event).localTarget;
+      	var map="https://www.google.com/maps?saddr=My+Location&daddr="+iconButton.lattitude+","+iconButton.longtitude;
+      	window.open(map);
       }
     </script>
     </paper-card>

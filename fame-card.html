@@ -1,0 +1,47 @@
+<dom-module id="fame-card">
+	<template>
+		<style is="custom-style">
+		  paper-card.rate { 
+		  	@apply(--layout-horizontal); 
+		  	width:400px;
+		  }
+		  .rate-image {
+		    width: 200px;
+		    height: 200px;
+		  }
+		  .rate-content {
+		    @apply(--layout-flex);
+		    float: left;
+		  }
+		  .rate-header { 
+		  	@apply(--paper-font-headline); 
+		  }
+		  .rate-name { 
+		  	color: var(--paper-grey-600); 
+		  	margin: 10px 0; 
+		  }
+		</style>
+		<paper-card class="rate">
+		  <div class="rate-content">
+		    <div class="card-content">
+		      <div class="rate-header">{{head}}</div>
+		      <div class="rate-name">{{nick}}</div>
+		      <div>{{desc}}</div>
+		    </div>
+		    
+		  </div>
+		  <div class="rate-image" ><img src="{{image}}" height="200px" width="200px" /></div>
+		</paper-card>
+	</template>
+	<script>
+		Polymer({
+			is:"fame-card",
+			properties:{
+				image : String,
+				head : String,
+				dp : String,
+				desc : String
+			}
+		});
+	</script>
+</dom-module>
