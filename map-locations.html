@@ -3,7 +3,7 @@
 		<style>
   			google-map {
     			height: 300px;
-    			width: 500px;
+    			width: var(--my-width);
     			margin-top:10px;
   			}
 		</style>
@@ -32,7 +32,16 @@ var gmap = document.querySelector('google-map');
 				lattitude : Number,
 				longtitude : Number,
 				title : String
-			}
+			},
+			ready : function(){
+		        if(window.innerWidth <= 400){
+		          this.customStyle['--my-width'] = (window.innerWidth-40)+'px';
+		          this.updateStyles();
+		        } else {
+		          this.customStyle['--my-width'] = '500px';
+		          this.updateStyles();
+		        }
+		      }
 
 		});
 		

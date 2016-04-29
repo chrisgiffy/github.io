@@ -7,6 +7,7 @@
 	}
 	table {
 		color:#ffffff;
+    width: var(--my-width);
 	}
 	paper-button{
 		background:#ffffff;
@@ -15,7 +16,7 @@
 	
 	<paper-card heading="{{center}}" animatedShadow="true" elevation="3">
   <div class="card-content">
-  <table width="500px">
+  <table>
   	<tr><td align="left" colspan="2">{{add}},</td></tr>
   	<tr><td align="left" colspan="2">{{location}},</td></tr>
   	<tr><td align="left" colspan="2">{{pincode}}</td></tr>
@@ -67,7 +68,16 @@ Polymer({
 			landmark : String,
 			timings : String,
 			days: String
-		}
+		},
+    ready : function(){
+        if(window.innerWidth <= 400){
+          this.customStyle['--my-width'] = (window.innerWidth-40)+'px';
+          this.updateStyles();
+        } else {
+          this.customStyle['--my-width'] = '500px';
+          this.updateStyles();
+        }
+      }
 });
 </script>
 </dom-module>

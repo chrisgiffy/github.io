@@ -3,11 +3,12 @@
 		<style is="custom-style">
 		  paper-card.rate { 
 		  	@apply(--layout-horizontal); 
-		  	width:400px;
+		  	width:var(--my-width);
 		  }
 		  .rate-image {
-		    width: 200px;
-		    height: 200px;
+		    width: var(--my-image-dim);
+		    height: var(--my-image-dim);
+		    border-radius: var(--my-image-rad);
 		  }
 		  .rate-content {
 		    @apply(--layout-flex);
@@ -30,7 +31,7 @@
 		    </div>
 		    
 		  </div>
-		  <div class="rate-image" ><img src="{{image}}" height="200px" width="200px" /></div>
+		  <div class="rate-image" ><img src="{{image}}" class="rate-image" /></div>
 		</paper-card>
 	</template>
 	<script>
@@ -41,7 +42,20 @@
 				head : String,
 				dp : String,
 				desc : String
-			}
+			},
+			ready : function(){
+				 if(window.innerWidth <= 400){
+		          this.customStyle['--my-width'] = (window.innerWidth-40)+'px';
+		          this.customStyle['--my-image-dim'] = '100px';
+		          this.customStyle['--my-image-rad'] = '50%';
+		          this.updateStyles();
+		        } else {
+		          this.customStyle['--my-width'] = '400px';
+		          this.customStyle['--my-image-dim'] = '200px'
+		          this.customStyle['--my-image-rad'] = '0px';
+		          this.updateStyles();
+		        }
+		      }
 		});
 	</script>
 </dom-module>
