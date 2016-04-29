@@ -1,0 +1,34 @@
+<dom-module id="train-mod">
+	<template>
+		<style>
+		paper-card{
+		width:var(--my-width);
+		margin-top:20px;
+		margin-right:20px;
+		margin-left:20px;
+	}
+		</style>
+		<paper-card heading="{{head}}" image="{{image}}" elevation="3">
+			<div class="card-content">{{desc}}</div>
+		</paper-card>
+	</template>
+	<script>
+		Polymer({
+			is:"train-mod",
+			properties : {
+				head:String,
+				image:String,
+				desc:String
+			},
+			ready: function(){
+			if(window.innerWidth <= 400){
+	          this.customStyle['--my-width'] = (window.innerWidth-40)+'px';
+	          this.updateStyles();
+	        } else {
+	          this.customStyle['--my-width'] = '400px';
+	          this.updateStyles();
+	        }
+		}
+		});
+	</script>
+</dom-module>

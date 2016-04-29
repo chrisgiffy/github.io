@@ -5,11 +5,13 @@
     	right: 0;
       	left: 0;
       	bottom:0;
+      	width:100%;
+      	text-align:center;
 	}
 	#fees-table {
-		margin-left:28%;
-		margin-top:2%;
-		width:600px;
+		width:100%;
+		border-spacing: 0px;
+    	border-collapse: 0px;
 	}
 	#fees-table td, #fees-table th{
 		height:60px;
@@ -19,13 +21,37 @@
 		background:#000000;
 		color:#ffffff;
 	}
+
+	tr:nth-child(odd) {background-color: #f2f2f2}
+
+	tr:hover{
+		background-color: red;
+		color: white;
+	}
+
+	.card-div{
+		@apply(--layout-horizontal);
+    	@apply(--layout-wrap);
+    	width:100%;
+	}
+
+	#table-card{
+		width:var(--my-width);
+		margin-top:50px;
+		margin-bottom:50px;
+	}
+
 	</style>
 	<div id="fees-div">
-	<table border="1" id="fees-table" class="center">
+	<div class="card-div">
+	<train-mod  head="Beginner" image="images/image1.jpg" desc="So you have decided to start rolling. This is for enthusiasts and starters who want to explore the sport be it for fun or fitness. We start gently at one place where we talk a bit about theory and learn a few skating essentials before we start to roll. Then the fun really starts. A student needs to be around 4 years old to begin with the sport. Beginners generally start either with quad skates or the inline ones. We emphasise that the student learns at his own pace."></train-mod>
+	<train-mod  head="Intermediate" image="images/image2.jpg" desc="Once you are done with the basics, you are now on a skill building exercise. We work on progressions leading to skills related to gliding, striding, turning, braking, etc. We also encourage you to participate in local club competitions so as to expose you to the real world of skating. You are also ready to take part in skating rallies, street skating or any other skating events."></train-mod>
+	<train-mod head="Expert" image="images/image3.jpg" desc="All set for championships, aren't you? You are now in one of the prime league of high level skating where the main focus is developing techniques, increasing aerobic and anaerobic capacities, learning competitive pressure handling and racing strategies, etc. More importantly you now start participating in high level competitions."></train-mod>
+	</div>
+	<paper-card elevation="3" id="table-card">
+	<div class="card-content">
+	<table id="fees-table" >
 		<tr>
-			<th>
-				Months
-			</th>
 			<th>
 				Sessions
 			</th>
@@ -38,10 +64,8 @@
 		</tr>
 		<tr>
 			<td>
-				Per Month
-			</td>
-			<td>
-				8/9
+				<div>8/9</div>
+				<div>Per Month</div>
 			</td>
 			<td>
 				Rs. 1500
@@ -52,10 +76,8 @@
 		</tr>
 		<tr>
 			<td>
-				3 Months
-			</td>
-			<td>
-				25
+				<div>25</div>
+				<div>3 Months</div>
 			</td>
 			<td>
 				Rs. 3600
@@ -66,10 +88,8 @@
 		</tr>
 		<tr>
 			<td>
-				6 Months
-			</td>
-			<td>
-				50
+				<div>50</div>
+				<div>6 Months</div>
 			</td>
 			<td>
 				Rs. 6000
@@ -80,10 +100,8 @@
 		</tr>
 		<tr>
 			<td>
-				1 Year
-			</td>
-			<td>
-				100
+				<div>100</div>
+				<div>1 Year</div>
 			</td>
 			<td>
 				Rs. 10000
@@ -94,10 +112,21 @@
 		</tr>
 	</table>
 	</div>
+	</paper-card>
+	</div>
 	</template>
 	<script>
 	Polymer({
 		is: "fees-page",
+		ready: function(){
+			if(window.innerWidth <= 400){
+	          this.customStyle['--my-width'] = (window.innerWidth-40)+'px';;
+	          this.updateStyles();
+	        } else {
+	          this.customStyle['--my-width'] = '50%';
+	          this.updateStyles();
+	        }
+		}
 	});
 	</script>
 </dom-module>
