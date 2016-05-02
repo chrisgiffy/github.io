@@ -13,17 +13,6 @@
                      title="{{title}}" draggable="false" drag-events>
   			</google-map-marker>
 		</google-map>
-		<google-map-directions id="directions-{{title}}" start-address="Your Location" end-address="{{title}}"
-            language="en"></google-map-directions>
-
-</google-map-directions>
-<script>
-var gmap = document.querySelector('google-map');
-  gmap.addEventListener('api-load', function(e) {
-  	console.dir(gmap.id);
-    document.querySelector('google-map-directions').map = this.map;
-  });
-</script>
 	</template>
 	<script>
 		Polymer({

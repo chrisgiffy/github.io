@@ -1,0 +1,81 @@
+<dom-module id="info-box">
+<template>
+	<style>
+	.sections-div{
+		@apply(--layout-horizontal);
+		@apply(--layout-wrap);
+		width:100%;
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	.inner-div {
+		@apply(--layout-horizontal);
+		@apply(--layout-wrap);
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.bw{
+		filter: gray; /* IE6-9 */
+  		filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+        -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+	}
+	.bw:hover{
+		filter: none;
+		-webkit-filter: grayscale(0);
+	}
+	</style>
+	<div class="sections-div">
+	<div class="inner-div">
+	<section onclick="clickHandler(event)">
+    <paper-button data-dialog="tsa"><img class="bw" src="images/tsa.jpg"/></paper-button>
+    <paper-dialog id="tsa" entry-animation="scale-up-animation" exit-animation="scale-down-animation" with-backdrop>
+    <paper-dialog-scrollable >
+      <img src="images/tsa.jpg"/> <h2>The Skate Academy</h2>
+      <p>The Skate Academy is Mumbai's only academy that has created the maximum number of International, National, State and District Level Champions. Our vision is to to create world class academies all over the globe that truly believes in producing international level champions. The academy not just focuses on making winners but also inculcating the spirit of healthy competition. The USP of TSA is that it imparts internationally recognised format of training along with safety, fun and team spirit. TSA is not just an academy, it's a family with a common goal of learning and achieving. TSA conducts regular skating classes at various locations in Mumbai. It is also affiliated with reputed skating institutes in Pune and Delhi. TSA provides basic, advanced and focussed training in various disciplines of skating.</p>
+      </paper-dialog-scrollable>
+    </paper-dialog>
+  </section>
+  <section onclick="clickHandler(event)">
+    <paper-button data-dialog="sir"><img class="bw" src="images/sir2.jpg"/></paper-button>
+    <paper-dialog id="sir" entry-animation="scale-up-animation" exit-animation="scale-down-animation" with-backdrop>
+    <paper-dialog-scrollable >
+      <img src="images/sir2.jpg"/><h2>Ajay Shivlani</h2>
+      <p>The Skate Academy (TSA), has been founded by Coach Ajay Shivlani who is an International Skating Examiner from ICP, USA and Level 2 Certified Instructor trained in Singapore. He is also the founder of Rollofit. Ajay is a World Record Holder for Skating which has been mentioned in Limca Book of Records. Coach Ajay Shivlani has been the official trainer for the Maharashtra State Team that participated in the National Championship. Ajay Shivlani is a mentor to Mumbai's three world rankers in Freestyle Skating.</p>
+      </paper-dialog-scrollable>
+    </paper-dialog>
+  </section>
+  <section onclick="clickHandler(event)">
+    <paper-button data-dialog="hawaa"><img class="bw" src="images/hawaa.jpg"/></paper-button>
+    <paper-dialog id="hawaa" entry-animation="scale-up-animation" exit-animation="scale-down-animation" with-backdrop>
+    <paper-dialog-scrollable >
+      <img src="images/hawaa.jpg"/><h2>Hawaa Hawaai</h2>
+      <p>Ajay was the trainer and skating designer for the movie Hawaa Hawaai which is the world's only movie based on Inline Speed Skating. Hawaa Hawaai has won the top award for Best Film in the 19th Schlingel Film Festival held in Chemnitz, Germany.</p>
+      </paper-dialog-scrollable>
+    </paper-dialog>
+  </section>
+  </div>
+  </div>
+<script>
+    function clickHandler(e) {
+      var button = e.target;
+      while (!button.hasAttribute('data-dialog') && button !== document.body) {
+        button = button.parentElement;
+      }
+      if (!button.hasAttribute('data-dialog')) {
+        return;
+      }
+      var id = button.getAttribute('data-dialog');
+      var dialog = document.getElementById(id);
+      if (dialog) {
+        dialog.open();
+      }
+    }
+  </script>
+</template>
+
+<script>
+	Polymer({
+		is:"info-box"
+	});
+</script>
+</dom-module>

@@ -1,0 +1,32 @@
+<dom-module id="signin-box">
+	<template>
+		<style>
+		paper-card{
+			width:var(--card-width);
+			height:250px;
+		}
+		</style>
+		<paper-card heading="Login">
+			<div class="card-content">
+				<paper-input label="Username"></paper-input>
+				<paper-input label="Password" type="password"></paper-input>
+				<paper-button raised>Login</paper-button>
+				<google-signin brand="google-plus"></google-signin>
+			</div>
+		</paper-card>
+	</template>
+	<script>
+		Polymer({
+			is:'signin-box',
+			ready: function(){
+			if(window.innerWidth <= 400){
+				this.customStyle['--card-width'] = (window.innerWidth-20)+'px';
+          		this.updateStyles();
+			} else {
+				this.customStyle['--card-width'] = '400px';
+          		this.updateStyles();
+          	}
+		}
+		});
+	</script>
+</dom-module>

@@ -7,11 +7,22 @@
 			margin-top:10px;
 			text-align: center;
 		}
+		.start-div{
+		@apply(--layout-horizontal);
+    	@apply(--layout-wrap);
+    	width:100%;
+    	margin-top:20px;
+	}
+		.agenda {
+			width:var(--table-width); 
+			padding:20px;
+		}
 		</style>
 		<div>
 			<div class="title">The Skate Academy</div>
-			<div style="margin-top:20px;">
-				<table width="600px" cellpadding="20px"> 
+			<div><h2>PRODUCING INTERNATIONAL CHAMPIONS</h2></div>
+			<div class="start-div" >
+				<table class="agenda"> 
 				<tr>
 				<td style="vertical-align: middle"><img src="images/logo-big.jpg" /></td>
 				<td style="vertical-align: middle">
@@ -19,12 +30,26 @@
 				</td>
 				</tr>
 				</table>
+				<signin-box></signin-box>
 			</div>
+			<info-box></info-box>
+			<div>WHAT SETS US APART</div>
+			<div>FORMAT. ATTITUDE. FUN.</div>
+			<format-box></format-box>
 		</div>
 	</template>
 	<script>
 	Polymer({
 		is: "home-page",
+		ready: function(){
+			if(window.innerWidth <= 400){
+				this.customStyle['--table-width'] = (window.innerWidth-20)+'px';
+          		this.updateStyles();
+			} else {
+				this.customStyle['--table-width'] = '600px';
+          		this.updateStyles();
+          	}
+		}
 	});
 	</script>
 </dom-module>
