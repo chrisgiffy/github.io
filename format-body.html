@@ -1,0 +1,58 @@
+<dom-module id="format-body">
+<template>
+	<style>
+	paper-card.rate { 
+		  	@apply(--layout-horizontal); 
+		  	@apply(--layout-wrap);
+		  	width:var(--my-width);
+		  }
+		  .rate-image {
+		    width:var(--my-image-dim);
+		    height: var(--my-image-dim);
+		    border-radius: var(--my-image-rad);
+		    margin-right: auto;
+		    margin-left: auto;
+		  }
+		  .rate-content {
+		  	width: var(--my-width);
+		  }
+		  .rate-header { 
+		  	@apply(--paper-font-headline); 
+		  }
+	</style>
+	<paper-card class="rate" elevation="3"  animated-shadow="true">
+	<div class="rate-image"><img src="{{image}}" class="rate-image"/></div>
+		  <div class="rate-content">
+		    <div class="card-content">
+		      <div class="rate-header">{{head}}</div>
+		      <div>{{desc}}</div>
+		    </div>
+		    
+		  </div>
+		  
+		</paper-card>
+</template>
+<script>
+	Polymer({
+		is:"format-body",
+		properties:{
+			head:String,
+			image:String,
+			desc:String
+		},
+		ready:function(){
+			 if(window.innerWidth <= 400){
+		          this.customStyle['--my-width'] = (window.innerWidth-40)+'px';
+		          this.customStyle['--my-image-dim'] = '90px';
+		          this.customStyle['--my-image-rad'] = '50%';
+		          this.updateStyles();
+		        } else {
+		          this.customStyle['--my-width'] = '300px';
+		          this.customStyle['--my-image-dim'] = '90px'
+		          this.customStyle['--my-image-rad'] = '0px';
+		          this.updateStyles();
+		        }
+		}
+	});
+</script>
+</dom-module>
