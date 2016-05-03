@@ -1,0 +1,33 @@
+<dom-module id="blog-page">
+	<template>
+		<style>
+		.blog {
+			@apply(--layout-horizontal);
+			@apply(--layout-wrap);
+			width:100%;
+		}
+		.blog > blog-card{
+			margin-left: 20px;
+			margin-right: 20px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		</style>
+		<div class="blog">
+			<blog-card image="images/bela-shah.jpg" head="Bella Shah" desc="Learning from Ajay Shivlani(sir) is invaluable for my son and it has been a life changing experience for us. Learning the fundamental of skating made him unique to reach in international competition. If you are searching for a skating class that is committed to seeing you succeed in your future. I suggest you attend THE SKATE ACADEMY  . I promise Ajay sir will make sure you  not only move forward in your skating result but must importantly in your life."></blog-card>
+
+			<blog-card image="images/nb-1.jpg" head="Nirali Bhatia" desc="It's been 6 and a half years and now i see my son zip and zoom so smoothly on his inline wheels. I never knew that my 3.5 year old son would become a State Level Gold Medalist. No doubts he has put his best, but I would say that today he is mentally and physically conditioned to take on any champion and there are no two doubts that it is because of the best ever coaches Ajay Sir and Sandeep Sir. Ajay Sir has been very instrumental in helping him learn how to accept defeat gracefully. Thank you Ajay Sir for taking Riyansh to such heights.  "></blog-card>
+
+			<blog-card image="images/sheetal-mehta.png" head="Sheetal Mehta" desc="I remember the few words that Ajay sir had quoted “ Every graph has to go down, for it to go up”. I believed in him and thus continued Mihir’s journey on his wheels. The knowledge that he shares with my son is intricate yet simplified for his understanding. He is enormously gifted in coaching, and the improvements that my son has displayed in his skating is a clear example of those gifts.  Learning the proper technique at an early age is vitally important and allows one to skate with a fluid motion while using less energy. I would highly recommend Ajay sir’s “ The Skate Academy” to anyone at any age and at any level. Ajay sir will truly make a difference. "></blog-card>
+
+			<blog-card image="images/leena-kukreja.jpg" head="Leena Kukreja" desc="It has been such an amazing experience for my son Karam to train with Ajay Sir. He has not only got the best skill, technique,  timing training but has benefitted from Ajay Sir's mentorship and the entire group of kids and parents is like a family. Going to Virar or Pune together has created a bonding. Ajay Sir is encouraging,  pushing and also empathetic of kids academics and rest. As a parent I rarely go to class as I am so sure that my son will be cared for and taught well."></blog-card>
+
+			<blog-card image="images/pl.jpg" head="Parita Lalwani" desc="My daughter Kavya has been skating for about a year and the progress she has made is commendable. Kavya is very passionate about skating and this passion arises from the positivity and perseverance of her coach, Ajay Shivlani. I joined The Skate Academy because I wanted the best training for my daughter. But what I am experiencing is way better than the best!"></blog-card>
+		</div>
+	</template>
+	<script>
+		Polymer({
+			is:"blog-page"
+		});
+	</script>
+</dom-module>
