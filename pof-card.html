@@ -1,0 +1,28 @@
+<dom-module id="prof-card">
+	<template>
+		<style>
+		paper-card {
+			width:200px;
+			margin-right:10px;
+			margin-left: 10px;
+		}
+		</style>
+		<paper-card image="{{image}}" heading="{{head}}">
+			<div class="card-content">
+				<div class="position">{{position}}</div>
+				<div class="desc">{{desc}}</div>
+			</div>
+		</paper-card>
+	</template>
+	<script>
+		Polymer({
+			is:"prof-card",
+			properties : {
+				image:String,
+				head:String,
+				position:String,
+				desc:String
+			}
+		});
+	</script>
+</dom-module>

@@ -33,11 +33,15 @@
       right: 0px;
       width: 50%;
     }
+    .card-pos {
+      color: var(--paper-grey-600); 
+    }
 	</style>
 	<div class="sections-div">
 	<div class="inner-div">
 	<section onclick="clickHandler(event)">
-    <paper-button data-dialog="sirBio"><img  src="images/sir.jpg"/></paper-button>
+      <prof-card image="images/sir.jpg" data-dialog="sirBio" head="Ajay Shivlani" position="Principal Coach"
+      desc="Internation Skating Instructor from ICP, USA and Level 2 certified Instructor."></prof-card>
     <paper-dialog id="sirBio" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
     <paper-dialog-scrollable >
       <img src="images/sir.jpg" align="left" class="img"/> <div class="head">Ajay Shivlani</div>
@@ -55,7 +59,8 @@
     </paper-dialog>
   </section>
   <section onclick="clickHandler(event)">
-    <paper-button data-dialog="sandeepBio"><img  src="images/sandeep.jpg"/></paper-button>
+  <prof-card image="images/sandeep.jpg" data-dialog="sandeepBio" head="Sandeep Sharma" position="Senior Coach"
+      desc="The Cool Guy and Funny Man. Favourite of all kids."></prof-card>
     <paper-dialog id="sandeepBio" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
     <paper-dialog-scrollable >
       <img src="images/sandeep.jpg" align="left" class="img"/><div class="head">Sandeep Sharma</div>
@@ -66,7 +71,8 @@ This fun loving skate coach is a father of two and brings in his skills as a fat
     </paper-dialog>
   </section>
   <section onclick="clickHandler(event)">
-    <paper-button data-dialog="sonaliBio"><img  src="images/sonali.jpg"/></paper-button>
+  <prof-card image="images/sonali.jpg" data-dialog="sonaliBio" head="Sonali Shivlani" position="Nutritionist"
+      desc="Sports Nutriotion & Diet Consultations"></prof-card>
     <paper-dialog id="sonaliBio" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
     <paper-dialog-scrollable >
       <img src="images/sonali.jpg" align="left" class="img"/><div class="head">Sonali Shivlani</div>
@@ -78,7 +84,8 @@ Sonali Shivlani is an Internationally Certified Pregnancy, Lactation and Child N
     </paper-dialog>
   </section>
   <section onclick="clickHandler(event)">
-    <paper-button data-dialog="poonamBio"><img  src="images/poonam.jpg"/></paper-button>
+   <prof-card image="images/poonam.jpg" data-dialog="poonamBio" head="Dr. Poonam Botadra" position="Nutritionist"
+      desc="Sports Injury Prevention and Management"></prof-card>
     <paper-dialog id="poonamBio" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
     <paper-dialog-scrollable >
       <img src="images/poonam.jpg" align="left" class="img"/><div class="head">Dr. Poonam Botadra</div>
@@ -97,7 +104,8 @@ Sonali Shivlani is an Internationally Certified Pregnancy, Lactation and Child N
     </paper-dialog>
   </section>
   <section onclick="clickHandler(event)">
-    <paper-button data-dialog="niraliBio"><img  src="images/nirali.jpg"/></paper-button>
+  <prof-card image="images/nirali.jpg" data-dialog="niraliBio" head="Nirali Bhatia" position="Counsellor"
+      desc="Child and Teenage Counsellor, Counselling Psychologist and Motivational Coach"></prof-card>
     <paper-dialog id="niraliBio" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
     <paper-dialog-scrollable >
       <img src="images/nirali.jpg" align="left" class="img" /><div class="head">Nirali Bhatia</div>
@@ -127,7 +135,8 @@ Services</li>
     </paper-dialog>
   </section>
   <section onclick="clickHandler(event)">
-    <paper-button data-dialog="santoshBio"><img  src="images/santosh.jpg"/></paper-button>
+  <prof-card image="images/santosh.jpg" data-dialog="santoshBio" head="Santosh Shinde" position="Coach"
+      desc="Small Children and kids Coach"></prof-card>
     <paper-dialog id="santoshBio" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
     <paper-dialog-scrollable >
       <img src="images/santosh.jpg" align="left" class="img"/><div class="head">Santosh Shinde</div>
