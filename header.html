@@ -38,15 +38,15 @@
       			<div class="title center" ><span>The Skate Academy</span></div>
       			<div class="flex bottom">
               <paper-tabs selected="{{selected}}"  style="background:red" scrollable="true">
-        <paper-tab>Home</paper-tab>
-        <paper-tab>Our Professionals</paper-tab>
-        <paper-tab>Hall of Fame</paper-tab>
-        <paper-tab>Blog</paper-tab>
-        <paper-tab>Media</paper-tab>
-        <paper-tab>Contact Us</paper-tab>
-        <paper-tab>Centers</paper-tab>
-        <paper-tab>Fees</paper-tab>
-        <paper-tab>Events</paper-tab>
+        <paper-tab onclick="onTabSelect()">Home</paper-tab>
+        <paper-tab onclick="onTabSelect()">Our Professionals</paper-tab>
+        <paper-tab onclick="onTabSelect()">Hall of Fame</paper-tab>
+        <paper-tab onclick="onTabSelect()">Blog</paper-tab>
+        <paper-tab onclick="onTabSelect()">Media</paper-tab>
+        <paper-tab onclick="onTabSelect()">Contact Us</paper-tab>
+        <paper-tab onclick="onTabSelect()">Centers</paper-tab>
+        <paper-tab onclick="onTabSelect()">Fees</paper-tab>
+        <paper-tab onclick="onTabSelect()">Events</paper-tab>
       </paper-tabs>
             </div>
 			</paper-toolbar>
@@ -65,6 +65,12 @@
     			</neon-animated-pages>
     		</div>
   		</paper-scroll-header-panel>
+      <script>
+        function onTabSelect(){
+          var scrollHeader = document.querySelector("paper-scroll-header-panel");
+          scrollHeader.scrollToTop(true);
+        }
+      </script>
 	</template>
     <script>
 
