@@ -31,7 +31,7 @@
       position: fixed;
       top: 0px;
       right: 0px;
-      width: 50%;
+      width: var(--dialog-width);
     }
     .card-pos {
       color: var(--paper-grey-600); 
@@ -172,11 +172,13 @@ Services</li>
               this.customStyle['--image-width-dim'] = '100px';
               this.customStyle['--image-height-dim'] = '100px';
               this.customStyle['--image-rad-dim'] = '50%';
+              this.customStyle['--dialog-width'] = '80%';
               this.updateStyles();
             } else {
               this.customStyle['--image-width-dim'] = '200px';
               this.customStyle['--image-height-dim'] = '300px';
               this.customStyle['--image-rad-dim'] = '0px';
+              this.customStyle['--dialog-width'] = '50%';
               this.updateStyles();
             }
           }

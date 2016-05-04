@@ -5,10 +5,26 @@
 			width:200px;
 			margin-right:10px;
 			margin-left: 10px;
+			background-color: #000000;
+			margin-bottom: 20px;
+			cursor:pointer
+		}
+		.position {
+			color: var(--paper-grey-100);
+			margin-top:5px;
+		}
+		.desc{
+			color: var(--paper-grey-300);
+			margin-top:5px;
+		}
+		.head{
+			@apply(--paper-font-headline); 
+			color:#ffffff;
 		}
 		</style>
-		<paper-card image="{{image}}" heading="{{head}}">
+		<paper-card image="{{image}}" preload-image="true" fade-image="true">
 			<div class="card-content">
+				<div class="head">{{head}}</div>
 				<div class="position">{{position}}</div>
 				<div class="desc">{{desc}}</div>
 			</div>

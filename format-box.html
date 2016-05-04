@@ -7,21 +7,23 @@
 		    width:100%;
 		}
 
-		  .format > format-body {
-		    box-sizing: border-box;
-		    margin-top:20px;
-		    margin-bottom: 20px;
-		    margin-right:10px;
-		    margin-left:10px;
-		    flex: 0 0 auto;
+		  
+		  .centerDiv {
+		  	 @apply(--layout-horizontal);
+		    @apply(--layout-wrap);
+		  	margin-right: auto;
+		  	margin-left: auto;
+		  	text-align: center;
 		  }
 	</style>
 	<div class="format">
+	<div class="centerDiv">
 	<format-body image="images/amazing.jpg" head="AMAZING EXPERIENCE" desc="We are not a typical skating academy. In addition to the regular sessions, students also develop specific skills in small groups based on their abilities so that they can absorb the most out of every lesson. In addition, We also ensure that the student has fun during the training." ></format-body>
 	<format-body image="images/icp.jpg" head="TALENTED STAFF" desc="We are proud to say that our team comprises not only of the best of the coaches but also includes sports nutritionist and a sports counsellor. We are also associated with a panel of the best of the sports medicine doctors, physiotherapists and fitness instructors."></format-body>
 	<format-body image="images/medals.jpg" head="MEDALS WON" desc="Well, we have really stopped counting as long back we lost the count of it. Oh, but we can proudly say that the number of medals won (combined) definitely crosses 1000."></format-body>
 	<format-body image="images/safety.jpg" head="SAFETY FIRST" desc="What can be more important than the safety of your child. At TSA, we ensure that the student steps on the ground only after he has worn the skates properly, fitted the helmet correctly and has worn the necessary protective gear."></format-body>
-	<div>
+	</div>
+	</div>
 </template>
 <script>
 	Polymer({

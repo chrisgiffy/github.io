@@ -16,25 +16,50 @@
 		.agenda {
 			width:var(--table-width); 
 			padding:20px;
+			background-color: #ffffff;
+		}
+		.divCenter {
+			margin-right: auto;
+			margin-left: auto;
+			text-align: center;
+		}
+		paper-card{
+			width:600px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.head {
+			@apply(--paper-font-headline); 
+			margin-right: 10px;
+		}
+		.desc {
+			margin-right: 10px;
+		}
+		.image-div {
+			width:200px;
+			float:left;
+		}
+		.content-div{
+			float:left;
+			width:100%;
 		}
 		</style>
 		<div>
-			<div class="title">The Skate Academy</div>
-			<div><h2>PRODUCING INTERNATIONAL CHAMPIONS</h2></div>
-			<div class="start-div" >
-				<table class="agenda"> 
-				<tr>
-				<td style="vertical-align: middle"><img src="images/logo-big.jpg" /></td>
-				<td style="vertical-align: middle">
-					<span>Imparting world class training, along with safety, fun and humility. Our Aim is to produce world class skating champions who bring glory not only to their families but also to the nation. We create the desire to achieve and not the desire to beat others</span>
-				</td>
-				</tr>
-				</table>
-				<signin-box></signin-box>
+			<div class="title">The SKATE ACADEMY</div>
+			<div class="divCenter"><h2>PRODUCING INTERNATIONAL CHAMPIONS</h2></div>
+			<div class="start-div" style="">
+			<paper-card elevation="3" preload-image="true" fade-image="true">
+			<div class="image-div"><img src="images/logo-big.jpg" ></div>
+				<div class="cont-div">
+				<div class="head">What We Stand For</div>
+				<div class="desc">Imparting world class training, along with safety, fun and humility. Our Aim is to produce world class skating champions who bring glory not only to their families but also to the nation. We create the desire to achieve and not the desire to beat others</div>
+				</div>
+			</paper-card>
 			</div>
+			<div class="divCenter"><h2>WHO ARE WE?</h2></div>
 			<info-box></info-box>
-			<div><h2>WHAT SETS US APART</h2></div>
-			<div><h3>FORMAT. ATTITUDE. FUN.</h3></div>
+			<div. class="divCenter"><h2>WHAT SETS US APART</h2></div>
+			<div class="divCenter"><h3>FORMAT. ATTITUDE. FUN.</h3></div>
 			<format-box></format-box>
 		</div>
 	</template>
