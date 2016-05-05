@@ -1,0 +1,56 @@
+<dom-module id="photos-page">
+<template>
+	<style>
+      .pics{
+      	@apply(--layout-horizontal);
+      	@apply(--layout-wrap);
+      	widht:100%;
+      }
+      img{
+      	@apply(--layout-center-center);
+      	margin-left:20px;
+      	width:240px;
+      	height:120px;
+      	margin-top:10px;
+      	margin-bottom: 10px;
+      }
+    </style>
+    <div class="pics">
+    <template is="dom-repeat" items="{{fileData}}" item="item">
+    <img src="pics/{{item.fileName}}" />
+    </template>
+    </div>
+</template>
+<script>
+	Polymer({
+		is:"photos-page",
+		 _onItemClick: function() {
+      this.$.pages.selected = 1;
+    },
+    _onClose: function() {
+      this.$.pages.selected = 0;
+    },
+    ready:function(){
+    	this.fileData = [
+            {fileName: '1.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '2.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '3.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '3.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '4.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '5.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '6.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '7.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '8.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '9.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '10.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '11.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '12.jpg', modifiedDate: 'May 12 2015'},
+            {fileName: '13.jpg', modifiedDate: 'May 12 2015'}
+        ];
+    }
+    
+
+	});
+
+</script>
+</dom-module>
