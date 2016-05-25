@@ -6,20 +6,93 @@
       	@apply(--layout-wrap);
       	widht:100%;
       }
-      img{
+      .img{
       	@apply(--layout-center-center);
-      	margin-left:20px;
-      	width:240px;
-      	height:120px;
-      	margin-top:10px;
+      	margin-left:5px;
+      	margin-right:0px;
+      	width:auto;
+      	height:200px;
+      	margin-top:0px;
       	margin-bottom: 10px;
+      }
+      .exp-img {
+      	@apply(--layout-center-center);
+      	@apply(--layout-horizontal);
+      	@apply(--layout-wrap);
+      	margin-left:auto;
+      	margin-right:auto;
+      	width:auto;
+      	height:500px;
+      	margin-top:auto;
+      	margin-bottom: auto;
       }
     </style>
     <div class="pics">
     <template is="dom-repeat" items="{{fileData}}" item="item">
-    <img src="pics/{{item.fileName}}" />
-    </template>
+
+    <div class="img">
+    <section>
+      <img src="pics/{{item.fileName}}" id="img-{{index}}" onclick="clickButton(this)"  class="img"/>
+    <paper-dialog  id="index-{{index}}" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
+    <div class="exp-img">
+    <div style="top:50%;float:left;z-index:2">
+    <paper-icon-button icon="chevron-left" id="left-{{item.fileName}}" file-length="{{fileData.length}}" onclick="switchImg(this)"></paper-icon-button>
     </div>
+    <div style="float:center">
+
+    	<img src="pics/{{item.fileName}}" id="imgShow-{{item.fileName}}" class="exp-img"/>
+    	</div>
+    	<div style="float:left; z-index:2; top:50%">
+    	<paper-icon-button icon="chevron-right" id="right-{{item.fileName}}" file-length="{{fileData.length}}" onclick="switchImg(this)"></paper-icon-button>
+    	</div>
+    </paper-dialog>
+    </section>
+    
+    </div>
+     </template> 
+
+    </div>
+    <script>
+    var newIndex = 0;
+    document.querySelector('paper-dialog').addEventListener('iron-overlay-closed', function(e){
+		newIndex = 0;
+    });
+    	function clickButton(dialogId){
+    		var imgId = dialogId.id;
+    		var id= imgId.substring(4,imgId.length);
+    		var dialog = document.getElementById('index-'+id);
+      		if (dialog) {
+				dialog.open();
+    		}
+    	}
+
+    	function switchImg(e){
+    		var split = e.id.split("-")
+    		if(newIndex==0){
+    			newIndex = split[1].split(".")[0];
+    		}
+    		if(split[0]=="left"){
+    			if(newIndex==1){
+    			
+    				newIndex=e.fileLength;
+    				
+    			} else {
+    				newIndex--;
+    			}
+
+    		} else {
+    			if(newIndex==e.fileLength){
+    				newIndex=1;
+    			} else {
+    				newIndex++;
+    			}
+    		}
+
+    		document.getElementById('imgShow-'+split[1]).src="pics/"+(newIndex)+".JPG";
+    		
+    		
+    	}
+  </script>
 </template>
 <script>
 	Polymer({
@@ -34,7 +107,6 @@
     	this.fileData = [
             {fileName: '1.JPG', modifiedDate: 'May 12 2015'},
             {fileName: '2.JPG', modifiedDate: 'May 12 2015'},
-            {fileName: '3.JPG', modifiedDate: 'May 12 2015'},
             {fileName: '3.JPG', modifiedDate: 'May 12 2015'},
             {fileName: '4.JPG', modifiedDate: 'May 12 2015'},
             {fileName: '5.JPG', modifiedDate: 'May 12 2015'},
