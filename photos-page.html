@@ -22,76 +22,86 @@
       	margin-left:auto;
       	margin-right:auto;
       	width:auto;
-      	height:500px;
+      	height:400px;
       	margin-top:auto;
       	margin-bottom: auto;
       }
+
+      paper-dialog {
+      	@apply(--layout-center-center);
+      	@apply(--layout-horizontal);
+      	@apply(--layout-wrap);
+      	height:600px;
+      	width:auto;
+      	margin-right: auto;
+      	margin-left: auto;
+      }
+
+     
     </style>
     <div class="pics">
+    <section onclick="clickHandler(event)">
     <template is="dom-repeat" items="{{fileData}}" item="item">
 
-    <div class="img">
-    <section>
-      <img src="pics/{{item.fileName}}" id="img-{{index}}" onclick="clickButton(this)"  class="img"/>
-    <paper-dialog  id="index-{{index}}" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
-    <div class="exp-img">
+    
+      <img src="pics/{{item.fileName}}"  data-dialog="imgSlide" id="img-{{index}}"  class="img"/>
+      </template>
+   <paper-dialog id="imgSlide" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
     <div style="top:50%;float:left;z-index:2">
-    <paper-icon-button icon="chevron-left" id="left-{{item.fileName}}" file-length="{{fileData.length}}" onclick="switchImg(this)"></paper-icon-button>
+    <paper-icon-button icon="chevron-left" id="left" file-length="{{fileData.length}}" onclick="switchImg(this)"></paper-icon-button>
     </div>
     <div style="float:center">
 
-    	<img src="pics/{{item.fileName}}" id="imgShow-{{item.fileName}}" class="exp-img"/>
+    	<img  id="imgShow" class="exp-img"/>
     	</div>
     	<div style="float:left; z-index:2; top:50%">
-    	<paper-icon-button icon="chevron-right" id="right-{{item.fileName}}" file-length="{{fileData.length}}" onclick="switchImg(this)"></paper-icon-button>
+    	<paper-icon-button icon="chevron-right" id="right" file-length="{{fileData.length}}" onclick="switchImg(this)"></paper-icon-button>
     	</div>
     </paper-dialog>
     </section>
-    
     </div>
-     </template> 
+      
 
     </div>
     <script>
-    var newIndex = 0;
-    document.querySelector('paper-dialog').addEventListener('iron-overlay-closed', function(e){
-		newIndex = 0;
-    });
-    	function clickButton(dialogId){
-    		var imgId = dialogId.id;
-    		var id= imgId.substring(4,imgId.length);
-    		var dialog = document.getElementById('index-'+id);
-      		if (dialog) {
-				dialog.open();
-    		}
-    	}
+    function clickHandler(e) {
+      var button = e.target;
+      while (!button.hasAttribute('data-dialog') && button !== document.body) {
+        button = button.parentElement;
+      }
+      if (!button.hasAttribute('data-dialog')) {
+        return;
+      }
+      document.getElementById('imgShow').src = button.getAttribute('src');
+      var id = button.getAttribute('data-dialog');
+      var dialog = document.getElementById(id);
+      if (dialog) {
+        dialog.open();
+      }
+    }
 
-    	function switchImg(e){
-    		var split = e.id.split("-")
-    		if(newIndex==0){
-    			newIndex = split[1].split(".")[0];
-    		}
-    		if(split[0]=="left"){
-    			if(newIndex==1){
-    			
-    				newIndex=e.fileLength;
-    				
-    			} else {
-    				newIndex--;
-    			}
-
+    function switchImg(e){
+    	var flag=false;
+    	var imgShow = document.getElementById('imgShow');
+    	if(e.id=='left'){
+    		flag = true;
+    	} 
+    	var imgArr = imgShow.src.split("/");
+    	if(flag){
+    		if(imgArr[imgArr.length-1].split(".")[0] == 1){
+    			imgShow.src = "pics/"+e.fileLength+".JPG";
     		} else {
-    			if(newIndex==e.fileLength){
-    				newIndex=1;
-    			} else {
-    				newIndex++;
-    			}
+    			imgShow.src = "pics/"+(imgArr[imgArr.length-1].split(".")[0]-1)+".JPG";
     		}
-
-    		document.getElementById('imgShow-'+split[1]).src="pics/"+(newIndex)+".JPG";
-    		
-    		
+    	} else {
+			if(imgArr[imgArr.length-1].split(".")[0] == e.fileLength){
+    			imgShow.src = "pics/1.JPG";
+    		} else {
+    			imgShow.src = "pics/"+(parseInt(imgArr[imgArr.length-1].split(".")[0])+1)+".JPG";
+    		}
     	}
+
+    }
   </script>
 </template>
 <script>
@@ -102,6 +112,9 @@
     },
     _onClose: function() {
       this.$.pages.selected = 0;
+    },
+    properties : {
+    	activeImg : String
     },
     ready:function(){
     	this.fileData = [
