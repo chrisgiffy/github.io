@@ -2,10 +2,29 @@
 <template>
 	<style>
 	</style>
+    <iron-ajax auto
+          url="https://www.googleapis.com/youtube/v3/search"
+          params='{"part":"snippet,id", "q":"AjayShivlani TheSkateAcademy", "key": "AIzaSyCcK6gZNXUajuj9wSKTz3rUET4RyU4IX3g", "type": "video"}'
+          handle-as="json"
+          last-response="{{ajaxResponse}}"></iron-ajax>
+	<template is="dom-repeat" items="[[ajaxResponse.items]]">
+          <div class="horizontal-section">
+            <h2><a href="[[url(item.id.videoId)]]" target="_blank">[[item.snippet.title]]</a></h2>
+            <iron-image src="[[item.snippet.thumbnails.high.url]]" width="256" height="256" sizing="cover" preload fade></iron-image>
+            <p>[[item.snippet.description]]</p>
+          </div>
+        </template>
 </template>
 <script>
 	Polymer({
-		is:"videos-page"
+		is:"videos-page",
+		properties : {
+			urlList: {
+				type :String,
+				readOnly : true,
+				value : ""
+			}
+		}
 	});
 </script>
 </dom-module>
