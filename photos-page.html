@@ -21,8 +21,8 @@
       	@apply(--layout-wrap);
       	margin-left:auto;
       	margin-right:auto;
-      	width:auto;
-      	height:400px;
+      	width:var(--dialog-img-width);
+      	height:var(--dialog-img-height);
       	margin-top:auto;
       	margin-bottom: auto;
       }
@@ -37,6 +37,13 @@
       	margin-left: auto;
       }
 
+      .fab {
+      	float:right;
+      	position: absolute;
+      	right:0px;
+      	top:-50px;
+      }
+
      
     </style>
     <div class="pics">
@@ -46,7 +53,9 @@
     
       <img src="pics/{{item.fileName}}"  data-dialog="imgSlide" id="img-{{index}}"  class="img"/>
       </template>
-   <paper-dialog id="imgSlide" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
+      
+   <paper-dialog no-cancel-on-outside-click="true" id="imgSlide" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
+   <div class="fab"><paper-fab icon="close" dialog-dismiss></paper-fab></div>
     <div style="top:50%;float:left;z-index:2">
     <paper-icon-button icon="chevron-left" id="left" file-length="{{fileData.length}}" onclick="switchImg(this)"></paper-icon-button>
     </div>
@@ -76,6 +85,7 @@
       var id = button.getAttribute('data-dialog');
       var dialog = document.getElementById(id);
       if (dialog) {
+      	
         dialog.open();
       }
     }
@@ -100,6 +110,8 @@
     			imgShow.src = "pics/"+(parseInt(imgArr[imgArr.length-1].split(".")[0])+1)+".JPG";
     		}
     	}
+    	var dialog = document.getElementById("imgSlide");
+    	dialog.notifyResize();
 
     }
   </script>
@@ -132,6 +144,16 @@
             {fileName: '12.JPG', modifiedDate: 'May 12 2015'},
             {fileName: '13.JPG', modifiedDate: 'May 12 2015'}
         ];
+
+        if(window.innerWidth <= 400){
+              this.customStyle['--dialog-img-height'] = 'auto';
+              this.customStyle['--dialog-img-width'] = ''+window.innerWidth-100+'px';
+              this.updateStyles();
+            } else {
+              this.customStyle['--dialog-img-width'] = 'auto';
+              this.customStyle['--dialog-img-height'] = ''+window.innerHeight-100+'px';
+              this.updateStyles();
+            }
     }
     
 
