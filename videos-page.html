@@ -4,16 +4,52 @@
 	</style>
     <iron-ajax auto
           url="https://www.googleapis.com/youtube/v3/search"
-          params='{"part":"snippet,id", "q":"AjayShivlani TheSkateAcademy", "key": "AIzaSyCcK6gZNXUajuj9wSKTz3rUET4RyU4IX3g", "type": "video"}'
+          params='{"part":"snippet,id", "channelId":"UCiv43rIk9lCie0AcHeZ1HiQ", "key": "AIzaSyCcK6gZNXUajuj9wSKTz3rUET4RyU4IX3g", "type": "video"}'
           handle-as="json"
           last-response="{{ajaxResponse}}"></iron-ajax>
+          <section onclick="clickHandler(event)">
 	<template is="dom-repeat" items="[[ajaxResponse.items]]">
-          <div class="horizontal-section">
-            <h2><a href="[[url(item.id.videoId)]]" target="_blank">[[item.snippet.title]]</a></h2>
-            <iron-image src="[[item.snippet.thumbnails.high.url]]" width="256" height="256" sizing="cover" preload fade></iron-image>
-            <p>[[item.snippet.description]]</p>
+	<paper-card heading = "[[item.snippet.title]]" id="video-{{item.id.video}}" data-dialog="videoSlide">
+          <div class="card-content">
+          <iron-image src="[[item.snippet.thumbnails.high.url]]" width="256" height="256" sizing="cover" preload fade></iron-image>
+            <h2><a href="[[url(item.id.videoId)]]" target="_blank"></a></h2>
+            
+            
           </div>
+          <div class="card-actions">
+          <p>[[item.snippet.description]]</p>
+          </div>
+          </paper-card>
         </template>
+        <paper-dialog no-cancel-on-outside-click="true" id="videoSlide" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
+        <google-youtube
+        id="videoShow"
+  height="270px"
+  width="480px"
+  rel="0"
+  start="5"
+  autoplay="1">
+</google-youtube>
+        </paper-dialog>
+        </section>
+        <script>
+    function clickHandler(e) {
+      var button = e.target;
+      while (!button.hasAttribute('data-dialog') && button !== document.body) {
+        button = button.parentElement;
+      }
+      if (!button.hasAttribute('data-dialog')) {
+        return;
+      }
+      document.getElementById('videoShow').videoId = button.getAttribute('id').split("-")[1];
+      var id = button.getAttribute('data-dialog');
+      var dialog = document.getElementById(id);
+      if (dialog) {
+      	
+        dialog.open();
+      }
+    }
+    </script>
 </template>
 <script>
 	Polymer({
