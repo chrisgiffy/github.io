@@ -47,7 +47,7 @@
      
     </style>
     <div class="pics">
-    <section onclick="clickHandler(event)">
+    <section onclick="imgClickHandler(event)">
     <template is="dom-repeat" items="{{fileData}}" item="item">
 
     
@@ -69,11 +69,8 @@
     </paper-dialog>
     </section>
     </div>
-      
-
-    </div>
     <script>
-    function clickHandler(e) {
+    function imgClickHandler(e) {
       var button = e.target;
       while (!button.hasAttribute('data-dialog') && button !== document.body) {
         button = button.parentElement;
