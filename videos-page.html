@@ -1,15 +1,25 @@
 <dom-module id="videos-page">
 <template>
 	<style>
-	.videos{
-      	@apply(--layout-horizontal);
-      	@apply(--layout-wrap);
-      	widht:100%;
-      }
-	paper-card {
-		width:var(--card-width);
-		margin-bottom: 20px;
+	.sections-div{
+		@apply(--layout-horizontal);
+		@apply(--layout-wrap);
+		width:100%;
+		margin-top: 40px;
+		margin-bottom: 40px;
 	}
+	.inner-div {
+		@apply(--layout-horizontal);
+		@apply(--layout-wrap);
+		margin-right: auto;
+		margin-left: auto;
+	}
+	 paper-card{
+			width:var(--card-width);
+			height:400px;
+			margin-right: 10px;
+			margin-left: 10px;
+		}
 
 	.fab {
       	float:right;
@@ -24,8 +34,10 @@
           handle-as="json"
           last-response="{{ajaxResponse}}"></iron-ajax>
 
-          <div class="videos">
+          <div class="sections-div">
           <section onclick="videoClickHandler(event)">
+	<div class="inner-div">
+          
 	<template is="dom-repeat" items="[[ajaxResponse.items]]">
 	<paper-card heading = "[[item.snippet.title]]" id="video-[[item.id.videoId]]" data-dialog="videoSlide">
           <div class="card-content">
@@ -40,7 +52,7 @@
           </paper-card>
         </template>
         <paper-dialog no-cancel-on-outside-click="true" id="videoSlide" entry-animation="slide-from-right-animation" exit-animation="slide-right-animation" with-backdrop>
-        <div class="fab"><paper-fab icon="close" dialog-dismiss></paper-fab></div>
+        <div class="fab"><paper-fab icon="close" onclick="pauseVideo()" dialog-dismiss></paper-fab></div>
         <google-youtube
         id="videoShow"
   height="270px"
@@ -50,9 +62,14 @@
   autoplay="1">
 </google-youtube>
         </paper-dialog>
+        </div>
         </section>
+        
         </div>
         <script>
+        function pauseVideo(){
+        	document.getElementById("videoShow").pause();
+        }
     function videoClickHandler(e) {
       var button = e.target;
       while (!button.hasAttribute('data-dialog') && button !== document.body) {
@@ -74,13 +91,6 @@
 <script>
 	Polymer({
 		is:"videos-page",
-		properties : {
-			urlList: {
-				type :String,
-				readOnly : true,
-				value : ""
-			}
-		},
 		ready:function(){
 			if(window.innerWidth <= 400){
               this.customStyle['--card-width'] = ''+window.innerWidth-10+'px';
