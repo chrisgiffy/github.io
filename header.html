@@ -37,7 +37,7 @@
 			<paper-toolbar class="tall" style="height:350px">
       			<div class="title center" ><span>The Skate Academy</span></div>
       			<div class="flex bottom">
-              <paper-tabs selected="{{selected}}"  style="background:red" scrollable="true">
+              <paper-tabs selected="{{selected}}" scrollable fit-container style="background:red" >
         <paper-tab onclick="onTabSelect()">Home</paper-tab>
         <paper-tab onclick="onTabSelect()">Our Professionals</paper-tab>
         <paper-tab onclick="onTabSelect()">Hall of Fame</paper-tab>
@@ -65,6 +65,7 @@
     			</neon-animated-pages>
     		</div>
   		</paper-scroll-header-panel>
+      
       <script>
         function onTabSelect(){
           var scrollHeader = document.querySelector("paper-scroll-header-panel");

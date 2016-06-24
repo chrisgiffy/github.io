@@ -16,7 +16,6 @@
 	}
 	 paper-card{
 			width:var(--card-width);
-			height:400px;
 			margin-right: 10px;
 			margin-left: 10px;
 		}
@@ -26,6 +25,10 @@
       	position: absolute;
       	right:0px;
       	top:-50px;
+      }
+      iron-image {
+      	width:100%;
+      	height:200px;
       }
 	</style>
     <iron-ajax auto
@@ -39,9 +42,9 @@
 	<div class="inner-div">
           
 	<template is="dom-repeat" items="[[ajaxResponse.items]]">
-	<paper-card heading = "[[item.snippet.title]]" id="video-[[item.id.videoId]]" data-dialog="videoSlide">
+	<paper-card heading = "[[item.snippet.title]]" id="video-[[item.id.videoId]]" data-dialog="videoSlide" elevation="3">
           <div class="card-content">
-          <iron-image src="[[item.snippet.thumbnails.high.url]]" width="256" height="150" sizing="cover" preload fade></iron-image>
+          <iron-image src="[[item.snippet.thumbnails.high.url]]"  sizing="cover" preload fade></iron-image>
             <h2><a href="[[url(item.id.videoId)]]" target="_blank"></a></h2>
             
             

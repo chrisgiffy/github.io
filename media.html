@@ -1,38 +1,41 @@
 <dom-module id="media-page">
-<template>
-	<style>
-	.menuContainer{
-		position:fixed;
-          top:355px;
-          left: 10px;
-          float:left;
-          z-index: 3;
-          background: #8CFA47;
-	}
-	</style>
-	<div class="menuContainer">
-	<paper-menu-button>
-  <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
-  <paper-menu class="dropdown-content" selected="{{selected}}">
-    <paper-item>Photos</paper-item>
-    <paper-item>Videos</paper-item>
-    <paper-item>News</paper-item>
-  </paper-menu>
-</paper-menu-button>
-</div>
-<neon-animated-pages id="media" selected="{{selected}}" entry-animation="slide-from-right-animation" exit-animation="slide-left-animation" >
-    				<neon-animatable><photos-page></photos-page></neon-animatable>
+	<template>
+		<style>
+			:root {
+            --my-custom-color: red;
+            --paper-tab-ink: #0817FE;
+
+            /* custom CSS property */
+            --paper-tabs-selection-bar-color: blue;
+            --paper-ripple : blue;
+
+            /* custom CSS mixin */
+            --paper-tabs: {
+                color: var(--default-primary-color); /* variable defined in default-theme.html */
+                background-color: #ADF951;
+            }
+        }
+		</style>
+		
+
+              <paper-tabs selected="{{selected}}" >
+        <paper-tab>Photos</paper-tab>
+        <paper-tab>Videos</paper-tab>
+        <paper-tab>News</paper-tab>
+      </paper-tabs>
+		<neon-animated-pages id="media" selected="{{selected}}" entry-animation="slide-from-right-animation" exit-animation="slide-left-animation" >
+			<neon-animatable><photos-page></photos-page></neon-animatable>
             <neon-animatable><videos-page></videos-page></neon-animatable>
-    				<neon-animatable><news-page></news-page></neon-animatable>
-    			</neon-animated-pages>
-</template>
+    		<neon-animatable><news-page></news-page></neon-animatable>
+    	</neon-animated-pages>
+	</template>
 	<script>
-	Polymer({
-		is: "media-page",
-		selected:0,
-		ready:function(){
-			this.selected=0;
-		}
-	});
+		Polymer({
+			is: "media-page",
+			selected:0,
+			ready:function(){
+				this.selected=0;
+			}
+		});
 	</script>
 </dom-module>
